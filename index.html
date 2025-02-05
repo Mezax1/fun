@@ -89,11 +89,12 @@
             document.getElementById('message').classList.remove('hidden');
             document.getElementById('roses').style.display = 'block';
             document.getElementById('noImage').style.display = 'none';
+            document.getElementById('noButton').style.display = 'none'; // Remove "No" button
         }
 
         function showAngry() {
-            document.getElementById('noButton').remove();
-            document.getElementById('noImage').style.display = 'block';
+            document.getElementById('noButton').remove(); // Remove "No" button
+            document.getElementById('noImage').style.display = 'block'; // Show angry GIF
         }
     </script>
 </body>
