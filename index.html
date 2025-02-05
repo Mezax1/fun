@@ -1,1 +1,97 @@
-<h1>Hello!</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Be My Valentine?</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            background-color: #ffe6f2;
+        }
+        .container {
+            margin-top: 100px;
+        }
+        .question {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .buttons button {
+            font-size: 20px;
+            padding: 10px 20px;
+            margin: 10px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: 0.3s ease-in-out;
+        }
+        .yes {
+            background-color: #ff4da6;
+            color: white;
+        }
+        .no {
+            background-color: #999;
+            color: white;
+            position: absolute;
+        }
+        .hidden {
+            display: none;
+        }
+        .emoji {
+            font-size: 50px;
+            margin-top: 20px;
+        }
+        @keyframes bouquet {
+            0% { transform: scale(0); }
+            100% { transform: scale(1); }
+        }
+        .bouquet {
+            font-size: 50px;
+            animation: bouquet 1s ease-in-out;
+        }
+        .message {
+            font-size: 22px;
+            color: #d63384;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+        .roses {
+            margin-top: 20px;
+            width: 300px;
+            display: none;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="question">Samira, will you be my Valentine? 💖</div>
+        <div class="buttons">
+            <button class="yes" onclick="showFlowers()">Yes</button>
+            <button class="no" id="noButton" onmouseover="moveNo()">No</button>
+        </div>
+        <div id="response" class="emoji hidden"></div>
+        <div id="message" class="message hidden"></div>
+        <img id="roses" class="roses" src="image.png" alt="Rainbow Roses">
+    </div>
+
+    <script>
+        function showFlowers() {
+            document.getElementById('response').innerHTML = '💐';
+            document.getElementById('response').className = 'emoji bouquet';
+            document.getElementById('message').innerHTML = "Yay! You made my day! ❤️";
+            document.getElementById('message').classList.remove('hidden');
+            document.getElementById('roses').style.display = 'block';
+        }
+
+        function moveNo() {
+            let noButton = document.getElementById('noButton');
+            let x = Math.random() * (window.innerWidth - 100);
+            let y = Math.random() * (window.innerHeight - 100);
+            noButton.style.left = `${x}px`;
+            noButton.style.top = `${y}px`;
+        }
+    </script>
+</body>
+</html>
